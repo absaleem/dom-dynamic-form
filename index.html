@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation with form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>.block{ display: block !important; } .label_txt{ margin:10px; }</style>
+</head>
+<body>
+<script src="https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js"></script>
+<script type="text/javascript">         
+function createDynamicelement(elementtype,data){ var elements=document.createElement(elementtype);
+    for(var arr in data ){  var data1=(arr,data[arr]);
+         Object.keys(data1.attr).forEach(function(key) {
+                 if(key=='innerHtml'){
+                    elements.innerHTML=data1.attr[key];
+                 }else{
+                    elements.setAttribute(key,data1.attr[key]);
+                 }
+        });
+        Object.keys(data1.styles).forEach(function(key) {
+           //      console.log(key1+"=="+data1.styles[key]);
+           
+        });
+    }
+    return elements;
+}
+
+function createHtmlrows(){
+let first_name=document.getElementById('first-name').value;   
+let last_name=document.getElementById('last-name').value;        
+let address=document.getElementById('address').value;        
+let pincode=document.getElementById('pincode').value;        
+let gender=document.getElementById('gender').value;        
+let food=document.getElementById('food').value;        
+let state=document.getElementById('state').value;        
+let country=document.getElementById('country').value;        
+    
+          let row=document.createElement('tr');
+            let column1=document.createElement('td');
+                column1.innerHTML=first_name;
+            let column2=document.createElement('td');
+                column2.innerHTML=last_name;
+            let column3=document.createElement('td');
+                column3.innerHTML=address;
+            let column4=document.createElement('td');
+                column4.innerHTML=pincode;
+            let column5=document.createElement('td');
+                column5.innerHTML=gender;
+            let column6=document.createElement('td');
+                column6.innerHTML=food;
+            let column7=document.createElement('td');
+                column7.innerHTML=state;
+            let column8=document.createElement('td');
+                column8.innerHTML=country;
+               
+                row.appendChild(column1);
+                row.appendChild(column2);
+                row.appendChild(column3);
+                row.appendChild(column4);
+                row.appendChild(column5);
+                row.appendChild(column6);
+                row.appendChild(column7);
+                row.appendChild(column8);
+              
+             tbody.appendChild(row);
+             document.getElementById("form").reset();
+      }
+      let div_container=createDynamicelement('div',[{"attr" :{"class":"container"},"styles":{}}]);
+      let div_row=createDynamicelement('div',[{"attr" :{"class":"col-sm-6"},"styles":{}}]);
+      let h1_tag=createDynamicelement('h1',[{"attr" :{"id":"title","innerHtml":"DOM Manipulation with form"},"styles":{}}]);
+      let p_tag=createDynamicelement('p',[{"attr" :{"id":"description","innerHtml":"DOM Manipulation with form"},"styles":{}}]);
+      let form_tag=createDynamicelement('form',[{"attr" :{"id":"form"},"styles":{}}]);
+      
+      let div_form_group_first_name=createDynamicelement('div',[{"attr" :{"class":"form-group"},"styles":{}}]);
+      let label_first_name=createDynamicelement('label',[{"attr" :{"class":"form-control-label","for":"first-name","innerHtml":"First name"},"styles":{}}]);
+      let input_first_name=createDynamicelement('input',[{"attr" :{"class":"form-control","id":"first-name","name":"first-name","placeholder":"enter first name","required":"required" },"styles":{}}]);
+
+      let div_form_group_last_name=createDynamicelement('div',[{"attr" :{"class":"form-group"},"styles":{}}]);
+      let label_last_name=createDynamicelement('label',[{"attr" :{"class":"form-control-label","for":"last-name","innerHtml":"Last name"},"styles":{}}]);
+      let input_last_name=createDynamicelement('input',[{"attr" :{"class":"form-control","id":"last-name","name":"last_name","placeholder":"enter last name","required":"required"},"styles":{}}]);
+
+      let div_form_group_adddress=createDynamicelement('div',[{"attr" :{"class":"form-group"},"styles":{}}]);
+      let label_address=createDynamicelement('label',[{"attr" :{"class":"form-control-label","for":"address","innerHtml":"Address"},"styles":{}}]);
+      let input_address=createDynamicelement('textarea',[{"attr" :{"class":"form-control","id":"address","name":"address","placeholder":"enter address","required":"required"},"styles":{}}]);
+
+      let div_form_group_pincode=createDynamicelement('div',[{"attr" :{"class":"form-group"},"styles":{}}]);
+      let label_pincode=createDynamicelement('label',[{"attr" :{"class":"form-control-label","for":"pincode","innerHtml":"Pincode"},"styles":{}}]);
+      let input_pincode=createDynamicelement('input',[{"attr" :{"class":"form-control","id":"pincode","name":"pincode","placeholder":"enter pincode","required":"required"},"styles":{}}]);
+
+      let div_form_group_gender=createDynamicelement('div',[{"attr" :{"class":"form-group"},"styles":{}}]);
+      let label_gender=createDynamicelement('label',[{"attr" :{"class":"form-control-label block","for":"gender","innerHtml":"Gender"},"styles":{}}]);
+      let input_gender1=createDynamicelement('input',[{"attr" :{"type":"radio", "class":"","id":"gender","name":"gender","placeholder":"enter gender","required":"required"},"styles":{}}]);
+      let label_gender_txt1=createDynamicelement('label',[{"attr" :{"class":"label_txt","for":"gender","innerHtml":"Male"},"styles":{}}]);
+      let input_gender2=createDynamicelement('input',[{"attr" :{"type":"radio", "class":"","id":"gender","name":"gender","placeholder":"enter gender",},"styles":{}}]);
+      let label_gender_txt2=createDynamicelement('label',[{"attr" :{"class":"label_txt","for":"gender","innerHtml":"Female"},"styles":{}}]);
+     
+      let div_form_group_food=createDynamicelement('div',[{"attr" :{"class":"form-group"},"styles":{}}]);
+      let label_food=createDynamicelement('label',[{"attr" :{"class":"form-control-label","for":"food","innerHtml":"Food"},"styles":{}}]);
+      let input_food=createDynamicelement('input',[{"attr" :{"class":"form-control","id":"food","name":"food","placeholder":"enter food","required":"required"},"styles":{}}]);
+
+      let div_form_group_state=createDynamicelement('div',[{"attr" :{"class":"form-group"},"styles":{}}]);
+      let label_state=createDynamicelement('label',[{"attr" :{"class":"form-control-label","for":"state","innerHtml":"State"},"styles":{}}]);
+      let input_state=createDynamicelement('input',[{"attr" :{"class":"form-control","id":"state","name":"state","placeholder":"enter state","required":"required"},"styles":{}}]);
+
+      let div_form_group_country=createDynamicelement('div',[{"attr" :{"class":"form-group"},"styles":{}}]);
+      let label_country=createDynamicelement('label',[{"attr" :{"class":"form-control-label","for":"country","innerHtml":"Country"},"styles":{}}]);
+      let input_country=createDynamicelement('input',[{"attr" :{"class":"form-control","id":"country","name":"country","placeholder":"enter country","required":"required"},"styles":{}}]);
+
+      let div_form_group_submit=createDynamicelement('div',[{"attr" :{"class":"form-group"},"styles":{}}]);
+      let input_submit=createDynamicelement('button',[{"attr" :{"type":"button","class":"btn btn-primary","id":"submit","name":"submit","innerHtml":"Submit"},"styles":{}}]);
+
+      
+      div_row.appendChild(h1_tag);
+      div_row.appendChild(p_tag);
+      
+      div_form_group_first_name.appendChild(label_first_name);  
+      div_form_group_first_name.appendChild(input_first_name);  
+      div_row.appendChild(div_form_group_first_name);
+      
+      div_form_group_last_name.appendChild(label_last_name);  
+      div_form_group_last_name.appendChild(input_last_name);  
+      div_row.appendChild(div_form_group_last_name);
+
+      div_form_group_adddress.appendChild(label_address);  
+      div_form_group_adddress.appendChild(input_address);  
+      div_row.appendChild(div_form_group_adddress);
+      
+      div_form_group_pincode.appendChild(label_pincode);  
+      div_form_group_pincode.appendChild(input_pincode); 
+      div_row.appendChild(div_form_group_pincode);
+
+      div_form_group_gender.appendChild(label_gender);
+      div_form_group_gender.appendChild(input_gender1);
+      div_form_group_gender.appendChild(label_gender_txt1);
+      div_form_group_gender.appendChild(input_gender2);
+      div_form_group_gender.appendChild(label_gender_txt2);
+      div_row.appendChild(div_form_group_gender);  
+      
+      
+      div_form_group_food.appendChild(label_food);  
+      div_form_group_food.appendChild(input_food); 
+      div_row.appendChild(div_form_group_food);
+
+      div_form_group_state.appendChild(label_state);  
+      div_form_group_state.appendChild(input_state); 
+      div_row.appendChild(div_form_group_state);
+
+      div_form_group_country.appendChild(label_country);  
+      div_form_group_country.appendChild(input_country); 
+      div_row.appendChild(div_form_group_country);
+     
+      div_form_group_submit.appendChild(input_submit); 
+      div_row.appendChild(div_form_group_submit);
+       
+      form_tag.appendChild(div_form_group_first_name);
+      form_tag.appendChild(div_form_group_last_name);
+      form_tag.appendChild(div_form_group_adddress);
+      form_tag.appendChild(div_form_group_pincode);
+      form_tag.appendChild(div_form_group_gender);
+      form_tag.appendChild(div_form_group_food);
+      form_tag.appendChild(div_form_group_state);
+      form_tag.appendChild(div_form_group_country);
+      form_tag.appendChild(div_form_group_submit);
+      div_row.appendChild(form_tag);
+      div_container.appendChild(div_row);
+
+
+      let div_table_list_row=createDynamicelement('div',[{"attr" :{"class":"col-sm-6"},"styles":{}}]);
+      let table_list_h1_tag=createDynamicelement('h1',[{"attr" :{"id":"title","innerHtml":"List datas"},"styles":{}}]);
+      
+      div_table_list_row.appendChild(table_list_h1_tag);
+      div_container.appendChild(div_table_list_row);
+    
+      let div_container_table=document.createElement('div');
+      div_container_table.setAttribute('class','row table-responsive');
+
+      let table = document.createElement('table');
+      table.setAttribute("id", "dyn_table");
+      table.setAttribute("class", "table table-bordered"); 
+       
+      let thead = document.createElement('thead');
+      let tbody = document.createElement('tbody');
+       
+      let heading1=document.createElement('th');
+          heading1.innerHTML='First name';
+      let heading2=document.createElement('th');
+          heading2.innerHTML='Last name';
+      let heading3=document.createElement('th');
+          heading3.innerHTML='Address';
+      let heading4=document.createElement('th');
+          heading4.innerHTML='Pincode';   
+      let heading5=document.createElement('th');
+          heading5.innerHTML='Gender';          
+      let heading6=document.createElement('th');
+          heading6.innerHTML='Food';  
+      let heading7=document.createElement('th');
+          heading7.innerHTML='State';  
+      let heading8=document.createElement('th');
+          heading8.innerHTML='Country';  
+          
+      thead.appendChild(heading1);
+      thead.appendChild(heading2);
+      thead.appendChild(heading3);
+      thead.appendChild(heading4);
+      thead.appendChild(heading5);
+      thead.appendChild(heading6);
+      thead.appendChild(heading7);
+      thead.appendChild(heading8);
+      table.appendChild(thead);
+      table.appendChild(tbody);
+      div_container_table.appendChild(table);
+      div_table_list_row.appendChild(div_container_table);
+
+      input_submit.addEventListener('click',(event) => { 
+            createHtmlrows();
+      });
+
+      document.body.append(div_container);
+    
+</script>
+
+</body>
+</html>
